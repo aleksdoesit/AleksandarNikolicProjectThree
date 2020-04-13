@@ -328,4 +328,8 @@ footer p {
     .buttonContainer {
         margin-left: 300px;
     }
+    
+    footer:before {
+        width: 8%;
+    }
 }
