@@ -39,6 +39,7 @@ header {
     display: flex;
     position: relative;
     flex-direction: column;
+    height: 85vh;
 }
 
 header h2 {
@@ -121,7 +122,7 @@ header h2 {
 }
 
 .characterCast div div:first-child {
-    padding-top: 105px;
+    padding-top: 115px;
 }
 
 .characterCast:after,

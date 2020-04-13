@@ -140,7 +140,7 @@ $('.charButton').on('click', function (event) {
     $('body, html').animate({
         scrollTop: position
     },
-    500,
+    700,
     'linear'
     )
 })
