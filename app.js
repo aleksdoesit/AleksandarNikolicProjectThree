@@ -50,7 +50,7 @@ const characters = {
         trivia: `John is played by cult counter-culture director John Waters and is similarly eccentric and hilarious. He can be seen sporting Homer's famous "Pin Pals" bowling shirt from the previous season.`,
         quote: `"Well, now you don't get any candy. No that's cruel. Just take a teensy piece."`,
         playedBy: `<a href="https://www.imdb.com/name/nm0000691/">John Waters</a>`,
-        profileImage: `<img src="assets/John.png" alt="John sporting his patented and dapper moustache">`,
+        profileImage: `<img class="johnPic" src="assets/John.png" alt="John sporting his patented and dapper moustache">`,
         video: `<iframe width="560" height="315" src="https://www.youtube.com/embed/C76tpMGY--M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     },
     character7: {
@@ -95,12 +95,28 @@ const characters = {
         trivia: `Everyone's favourite charasmatic con man despite only appearing in two episodes. Largely due to being played by former show regular Phil Hartman who is responsible for some of <em>The Simpsons</em> most iconic characters`,
         quote: `"The name's Lanley. Lyle Lanley. And I come before you good people tonight with an idea. Probably the greatest... Aw, it's not for you. It's more of a Shelbyville idea."`,
         playedBy: `<a href="https://www.imdb.com/name/nm0367005/">Phil Hartman</a>`,
-        profileImage: `<img src="assets/Lyle_Lanley.png" alt="Lyle in his classic salesmans outfit">`,
+        profileImage: `<img class="lylePic" src="assets/Lyle_Lanley.png" alt="Lyle in his classic salesmans outfit">`,
         video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/MGlyu5CbnSU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
     }
 };
 
+// Audio files to play while clicked
+
+const audioClips = [
+    'assets/Superb_choice.mp3',
+    'assets/Excellent.mp3',
+    'assets/Okely.mp3',
+    'assets/Barney.mp3'
+]
+
 $('.charButton').on('click', function () {
+
+    // Play audio on click
+    let randomAudio = audioClips[Math.floor(Math.random() * audioClips.length)]
+
+    let audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', randomAudio);
+    audioElement.play()
 
     // Get character ID on click
     let charId = $(this).attr('id');
@@ -108,18 +124,14 @@ $('.charButton').on('click', function () {
     let targetCharacter = characters[charId]
 
     // Clear field before generating to DOM
-    $('.generateImage').html('');
-    $('.generateText').html('');
-    $('.generateVideo').html('');
-    
+    $('.generateToDom').html('')
+
 
     // Generate to DOM
-    $('.generateImage').append(`${targetCharacter.profileImage}`)
+    $('.generateToDom').append(`<div class="chalkboard wrapper"><div class="generateImage">${targetCharacter.profileImage}</div><div class="generateText"><h3>${targetCharacter.name}</h3><p><span>First Appearance:</span>${targetCharacter.firstAppearance}</p><p><span>Trivia:</span>${targetCharacter.trivia}</p><p><span>Quote:</span>${targetCharacter.quote}</p><p><span>Voiced By:</span>${targetCharacter.playedBy}</p></div><div class="generateVideo">${targetCharacter.video}</div></div> `)
+})
 
-    $('.generateText').append(`<h3>${targetCharacter.name}</h3>`)
-        .append(`<p><span>First Appearance: </span>${targetCharacter.firstAppearance}</p>`)
-        .append(`<p><span>Trivia: </span>${targetCharacter.trivia}</p>`)
-        .append(`<p><span>Quote: </span>${targetCharacter.quote}</p>`)
-        .append(`<p><span>Voiced By: </span>${targetCharacter.playedBy}</p>`)
-    $('.generateVideo').append(`${targetCharacter.video}`)
+// Clear DOM once element is clicked
+$('.mrSparkle').on('click', function () {
+    $('.generateToDom').html('')
 })
