@@ -290,3 +290,26 @@ footer p {
 .lylePic {
     max-width: 180%;
 }
+
+@media (min-width: 1080px) {
+    .characterCast:before,
+    .characterCast:after {
+        width: 8%;
+    }
+
+    .characterCast div div:first-child {
+        padding-top: 250px;
+    }
+
+    .buttonContainer {
+        margin-left: 200px;
+    }
+
+    footer:before {
+        width: 8%;
+    }
+
+    .characterCast > div {
+        height: 90vh;
+    }
+}
