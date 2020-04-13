@@ -129,7 +129,22 @@ $('.charButton').on('click', function () {
 
     // Generate to DOM
     $('.generateToDom').append(`<div class="chalkboard wrapper"><div class="generateImage">${targetCharacter.profileImage}</div><div class="generateText"><h3>${targetCharacter.name}</h3><p><span>First Appearance:</span>${targetCharacter.firstAppearance}</p><p><span>Trivia:</span>${targetCharacter.trivia}</p><p><span>Quote:</span>${targetCharacter.quote}</p><p><span>Voiced By:</span>${targetCharacter.playedBy}</p></div><div class="generateVideo">${targetCharacter.video}</div></div> `)
+
 })
+
+// Scroll to the newly generated section
+$('.charButton').on('click', function (event) {
+    
+    let position = $($(this).attr("href")).offset().top;
+
+    $('body, html').animate({
+        scrollTop: position
+    },
+    500,
+    'linear'
+    )
+})
+
 
 // Clear DOM once element is clicked
 $('.mrSparkle').on('click', function () {
