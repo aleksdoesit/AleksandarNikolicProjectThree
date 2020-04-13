@@ -291,20 +291,24 @@ footer p {
     max-width: 180%;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
     .characterCast div div:first-child {
-        padding-top: 250px;
+        padding-top: 350px;
+    }
+
+    .buttonContainer {
+        margin-left: 300px;
     }
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1079px) {
     .characterCast:before,
     .characterCast:after {
         width: 8%;
     }
 
     .characterCast div div:first-child {
-        padding-top: 250px;
+        padding-top: 200px;
     }
 
     .buttonContainer {
